@@ -26,6 +26,8 @@ export default {
   name: "experience",
   data() {
     return {
+			icon1: require("../common/images/company.png"),
+			icon2: require("../common/images/project.png"),
       title: "工作经历",
       list: [
         {
@@ -34,7 +36,7 @@ export default {
           projectInfo: [
             "主要工作内容：生产广告招牌字，门店门头招牌等，主要是体力活"
           ],
-          className: "s1"
+          className: "s1",
         },
         {
           time: "2016/7 - 2018/5",
@@ -45,7 +47,7 @@ export default {
             `3、根据产品设计，利用HTML5和CSS3等相关技术开发手机、平板电脑等多平台上的前端应用`,
             `4、负责微信小程序页面制作开发及维护`
           ],
-          className: "s1"
+          className: "s1",
         },
         {
           time: "2018/7 - 至今",
@@ -59,7 +61,7 @@ export default {
             `6、负责公司技术部框架的搭建使用`,
             `7、负责公司技术开发的一些工具类搭建，提高团队开发效率`
           ],
-          className: "s1"
+          className: "s1",
         },
         {
           time: "2018/7 - 至今",
@@ -78,7 +80,7 @@ export default {
             `5、与产品、后台开发人员保持良好沟通，理解各方需求，转变为具体的开发工作；`,
             `6、使用git进行项目代码版本控制`
           ],
-          className: "s2"
+          className: "s2",
         },
         {
           time: "2018/7 - 至今",
@@ -94,7 +96,7 @@ export default {
             `3、配合同事提出得需求，不断维护更新，修复bug，添加新功能`,
             `4、图片处理以及本地服务器采用node.js + express.js搭建`
           ],
-          className: "s2"
+          className: "s2",
         },
         {
           time: "2018/7 - 至今",
@@ -111,7 +113,7 @@ export default {
             `2、负责基本架构的设计和搭建`,
             `3、维护更新，修复bug，添加新功能`
           ],
-          className: "s2"
+          className: "s2",
         },
         {
           time: "2018/7 - 至今",
@@ -131,7 +133,7 @@ export default {
             `3、与后端开发人员对接api接口，同时对接腾讯地图sdk，云信sdk`,
             `4、使用git进行项目代码版本控制`
           ],
-          className: "s2"
+          className: "s2",
         }
       ]
     };
@@ -260,7 +262,7 @@ ul.content li span {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: url("../common/images/icon.png") no-repeat center;
+  background: url("../common/images/company.png") no-repeat center;
   background-size: 50%;
 }
 ul.content li .s1 {
