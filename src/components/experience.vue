@@ -28,19 +28,6 @@ let styleString = {
 	color333: `color:#333;`
 }
 
-window.open = function (targetDom) {
-	let targetDomRect = targetDom.getBoundingClientRect()
-	let imgPreviewBox = document.getElementById('img-preview-box')
-	imgPreviewBox.style.top = targetDomRect.top - 300 - 20 + 'px';
-	imgPreviewBox.style.left = targetDomRect.left - 80 + 'px';
-	imgPreviewBox.style.opacity = 1;
-}
-
-window.close = function (targetDom) {
-	let imgPreviewBox = document.getElementById('img-preview-box')
-	imgPreviewBox.style.opacity = 0;
-}
-
 export default {
   name: "experience",
   data() {
@@ -95,7 +82,7 @@ export default {
             `3、一套代码，兼容pc端移动端响应式布局`,
             `4、采用合理的项目架构设计，使得小程序的view层可服用web端代码`,
             `5、另有后台管理系统，可以查看数据，因内部使用，这里不多介绍`,
-            `6、<a onmouseover="window.open(this)" onmouseleave="window.close(this)" target="view_window" class="reset-alink" href="https://www.softbuilder.cn">https://www.softbuilder.cn</a>`,
+            `6、<a onmouseover="window.open(this, 'softbuilder')" onmouseleave="window.close(this)" target="view_window" class="reset-alink" href="https://www.softbuilder.cn">https://www.softbuilder.cn</a>`,
             `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、根据产品设计，利用html5 + css3 + js开发的web前端页面`,
             `2、使用jQuery配合手写css响应式布局，兼容移动端，一套代码多端运行`,
