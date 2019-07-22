@@ -2,6 +2,10 @@
   <div id="app">
     <router-view />
     <span class="top-btn" @click="scrollToTop" v-show="topBtn"></span>
+    <div id="img-preview-box" class="img-box">
+      <img src="http://img15.3lian.com/2016/h1/75/d/214.jpg" alt="">
+      <div class="msg">扫码查看移动端</div>
+    </div>
   </div>
 </template>
 
@@ -67,10 +71,47 @@ export default {
   background-position: 0 100%;
 }
 
-
 .reset-alink {
 	text-decoration:none;
 	outline: none;
 	color: #44c7f4;
+}
+
+.img-box {
+  position: fixed;
+  transition: opacity 300ms;
+  width: 300px;
+  height: 300px;
+  background-color: #FFF;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  /* overflow: hidden; */
+}
+
+.img-box:before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: #FFF transparent transparent;
+}
+
+.img-box img {
+  width: 100%;
+  flex: 13;
+}
+
+.img-box .msg {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 18px;
 }
 </style>

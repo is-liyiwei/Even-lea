@@ -22,10 +22,25 @@
 </template>
 
 <script>
+
 let styleString = {
 	fw: `font-weight: bold;`,
 	color333: `color:#333;`
 }
+
+window.open = function (targetDom) {
+	let targetDomRect = targetDom.getBoundingClientRect()
+	let imgPreviewBox = document.getElementById('img-preview-box')
+	imgPreviewBox.style.top = targetDomRect.top - 300 - 20 + 'px';
+	imgPreviewBox.style.left = targetDomRect.left - 80 + 'px';
+	imgPreviewBox.style.opacity = 1;
+}
+
+window.close = function (targetDom) {
+	let imgPreviewBox = document.getElementById('img-preview-box')
+	imgPreviewBox.style.opacity = 0;
+}
+
 export default {
   name: "experience",
   data() {
@@ -79,6 +94,8 @@ export default {
             `2、客户可根据不同功能需求对软件开发做价格预估`,
             `3、一套代码，兼容pc端移动端响应式布局`,
             `4、采用合理的项目架构设计，使得小程序的view层可服用web端代码`,
+            `5、另有后台管理系统，可以查看数据，因内部使用，这里不多介绍`,
+            `6、<a onmouseover="window.open(this)" onmouseleave="window.close(this)" target="view_window" class="reset-alink" href="https://www.softbuilder.cn">https://www.softbuilder.cn</a>`,
             `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、根据产品设计，利用html5 + css3 + js开发的web前端页面`,
             `2、使用jQuery配合手写css响应式布局，兼容移动端，一套代码多端运行`,
@@ -96,7 +113,7 @@ export default {
             `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、采用node.js + vue.js开发的工具项目，目的是能够避免重复的编写代码工作`,
             `2、使用工具生成开发需要编写得代码，配合web页面并且使用ctrl + c和ctrl + v操作，提高开发效率`,
-            `3、<a class="reset-alink" href="https://github.com/is-liyiwei/codeGenerator">github地址：https://github.com/is-liyiwei/codeGenerator</a>`,
+            `3、<a target="view_window" class="reset-alink" href="https://github.com/is-liyiwei/codeGenerator">github地址：https://github.com/is-liyiwei/codeGenerator</a>`,
             `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、采用vue.js框架开发`,
             `2、负责基本架构的设计和搭建`,
@@ -112,9 +129,9 @@ export default {
             `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、一个公司内部开发使用的UI组件库，封装了一些常用的开发页面和组件`,
             `2、公司项目的一些开发模板，多个项目可复用代码，提高团队开发效率`,
-            `github地址：https://github.com/is-liyiwei/im-vuer`,
-            `实例demo地址：https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/`,
-            `使用文档：https://is-liyiwei.github.io/im-vuer/#/`,
+            `3、<a target="view_window" class="reset-alink" href="https://github.com/is-liyiwei/im-vuer">github地址：https://github.com/is-liyiwei/im-vuer</a>`,
+            `4、<a target="view_window" class="reset-alink" href="https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/">示例demo地址：https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/</a>`,
+            `5、<a target="view_window" class="reset-alink" href="https://is-liyiwei.github.io/im-vuer/#/">使用文档：https://is-liyiwei.github.io/im-vuer/#/</a>`,
             `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、采用vue.js框架开发`,
             `2、负责基本架构的设计和搭建`,
@@ -132,12 +149,12 @@ export default {
             `3、软件内部使用，地图定位，路径规划，路线报价，实时上传位置信息，确保订单流程`,
 						`4、接入云信sdk，使得乘客与司机可在线聊天，也可一键拨打司机电话和报警电话`,
 						`乘客端安装包`,
-            `Android下载链接：11`,
-						`iOS下载链接：https://www.pgyer.com/5POf`,
+            `1、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/5POf">Android下载链接：000000000000000</a>`,
+            `2、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/5POf">iOS下载链接：https://www.pgyer.com/5POf</a>`,
 						`司机端安装包`,
-						`Android下载链接：11`,
-            `iOS下载链接：https://www.pgyer.com/z11q`,
-            `另有后台管理系统，可以查看订单数据，因内部使用，这里不多介绍`,
+            `1、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/z11q">Android下载链接：000000000000000</a>`,
+            `2、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/z11q">iOS下载链接：https://www.pgyer.com/z11q</a>`,
+            `3、另有后台管理系统，可以查看订单数据，因内部使用，这里不多介绍`,
             `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、负责采用vue框架 + vant + scss + webpack + ES6开发app项目`,
             `2、内部采用webview方式加载web端页面，与开发人员通过WKWebView对接两端数据`,
@@ -148,7 +165,10 @@ export default {
         }
       ]
     };
-  }
+	},
+	mounted () {
+
+	}
 };
 </script>
 
