@@ -5,7 +5,7 @@
       <h1 class="title">{{title}}</h1>
       <span class="border"></span>
       <div class="s_wrapper">
-        <div class="progress-bar" v-for="item in skill">
+        <div class="progress-bar" v-for="item in skill" :key="item.type">
           <progressBar :skill="item"></progressBar>
         </div>
         <div class="clearfix"></div>

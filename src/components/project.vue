@@ -18,12 +18,12 @@
         <li>
           <div class="title">代码生成工具</div>
           <img src="../common/images/web1.jpg" alt="项目3" />
-          <div class="link" @click="openPage('https://www.softbuilder.cn/')">点击前往</div>
+          <div class="link" @click="openPage('https://github.com/is-liyiwei/codeGenerator')">点击前往</div>
         </li>
         <li>
           <div class="title">约车app</div>
           <img src="../common/images/web1.jpg" alt="项目4" />
-          <div class="link" @click="openPage('https://www.softbuilder.cn/')">点击前往</div>
+          <div class="link" style="opacity: 0;">点击前往</div>
         </li>
         <div class="clearfix"></div>
       </ul>

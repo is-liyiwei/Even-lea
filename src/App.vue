@@ -66,4 +66,11 @@ export default {
 #app .top-btn:hover {
   background-position: 0 100%;
 }
+
+
+.reset-alink {
+	text-decoration:none;
+	outline: none;
+	color: #44c7f4;
+}
 </style>

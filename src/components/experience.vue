@@ -12,7 +12,7 @@
           </div>
           <div class="content_right tx_left">
             <h4>{{v.companyName}}</h4>
-            <p v-for="(vv) in v.projectInfo" :key="vv" v-html="vv"></p>
+            <p class="info-message" v-for="(vv) in v.projectInfo" :key="vv" v-html="vv"></p>
           </div>
           <div class="clearfix"></div>
         </li>
@@ -22,26 +22,32 @@
 </template>
 
 <script>
+let styleString = {
+	fw: `font-weight: bold;`,
+	color333: `color:#333;`
+}
 export default {
   name: "experience",
   data() {
     return {
 			icon1: require("../common/images/company.png"),
 			icon2: require("../common/images/project.png"),
-      title: "工作经历",
+      title: "工作与项目",
       list: [
         {
           time: "2015/2 - 2016/3",
-          companyName: "阳江市新秀广告公司",
+          companyName: "阳江市新秀广告公司 (普工)",
           projectInfo: [
-            "主要工作内容：生产广告招牌字，门店门头招牌等，主要是体力活"
+            `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
+            `1、主要工作内容：生产广告招牌字，门店门头招牌等，体力活较多，技术含量不高`
           ],
           className: "s1",
         },
         {
           time: "2016/7 - 2018/5",
-          companyName: "广州幻速科技有限公司",
+          companyName: "广州幻速科技有限公司 (web前端开发)",
           projectInfo: [
+            `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
             `1、负责Web产品的前端表现层与后端交互的设计和开发，保证页面浏览的兼容性和流畅浏览`,
             `2、负责公司项目网页开发及维护、优化`,
             `3、根据产品设计，利用HTML5和CSS3等相关技术开发手机、平板电脑等多平台上的前端应用`,
@@ -51,8 +57,9 @@ export default {
         },
         {
           time: "2018/7 - 至今",
-          companyName: "广州市萤火虫软件开发有限公司",
+          companyName: "广州市萤火虫软件开发有限公司 (web前端开发)",
           projectInfo: [
+            `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
             `1、对系统框架相关技术和业务进行开发，并解决系统开发、运行中出现的各种问题；`,
             `2、负责Web产品的前端表现层与后端交互的设计和开发，保证页面浏览的兼容性和流畅浏览`,
             `3、负责公司项目网页开发及维护、优化`,
@@ -67,12 +74,12 @@ export default {
           time: "2018/7 - 至今",
           companyName: "公司官网 - PC端/移动端/小程序/后台系统",
           projectInfo: [
-            `项目描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、在线接入内部业务人员以及软件开发报价`,
             `2、客户可根据不同功能需求对软件开发做价格预估`,
             `3、一套代码，兼容pc端移动端响应式布局`,
             `4、采用合理的项目架构设计，使得小程序的view层可服用web端代码`,
-            `责任描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、根据产品设计，利用html5 + css3 + js开发的web前端页面`,
             `2、使用jQuery配合手写css响应式布局，兼容移动端，一套代码多端运行`,
             `3、负责相关产品的需求以及前端程序的实现，提供合理的前端架构；`,
@@ -86,11 +93,11 @@ export default {
           time: "2018/7 - 至今",
           companyName: "图片文字代码自动生成工具",
           projectInfo: [
-            `项目描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、采用node.js + vue.js开发的工具项目，目的是能够避免重复的编写代码工作`,
             `2、使用工具生成开发需要编写得代码，配合web页面并且使用ctrl + c和ctrl + v操作，提高开发效率`,
-            `github地址：https://github.com/is-liyiwei/codeGenerator`,
-            `责任描述：`,
+            `3、<a class="reset-alink" href="https://github.com/is-liyiwei/codeGenerator">github地址：https://github.com/is-liyiwei/codeGenerator</a>`,
+            `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、采用vue.js框架开发`,
             `2、负责基本架构的设计和搭建`,
             `3、配合同事提出得需求，不断维护更新，修复bug，添加新功能`,
@@ -102,13 +109,13 @@ export default {
           time: "2018/7 - 至今",
           companyName: "公司内部UI组件库开发",
           projectInfo: [
-            `项目描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、一个公司内部开发使用的UI组件库，封装了一些常用的开发页面和组件`,
             `2、公司项目的一些开发模板，多个项目可复用代码，提高团队开发效率`,
             `github地址：https://github.com/is-liyiwei/im-vuer`,
             `实例demo地址：https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/`,
             `使用文档：https://is-liyiwei.github.io/im-vuer/#/`,
-            `责任描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、采用vue.js框架开发`,
             `2、负责基本架构的设计和搭建`,
             `3、维护更新，修复bug，添加新功能`
@@ -119,15 +126,19 @@ export default {
           time: "2018/7 - 至今",
           companyName: "高盛网约app - app/web混合开发",
           projectInfo: [
-            `项目描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">项目描述：</span>`,
             `1、采用vue框架 + vant + scss + webpack + ES6开发的混合型app项目`,
             `2、项目分成乘客端/司机端，乘客可根据地图地位在线叫车，司机端根据最近订单接单`,
             `3、软件内部使用，地图定位，路径规划，路线报价，实时上传位置信息，确保订单流程`,
-            `4、接入云信sdk，使得乘客与司机可在线聊天，也可一键拨打司机电话和报警电话`,
+						`4、接入云信sdk，使得乘客与司机可在线聊天，也可一键拨打司机电话和报警电话`,
+						`乘客端安装包`,
             `Android下载链接：11`,
-            `iOS下载链接：`,
+						`iOS下载链接：https://www.pgyer.com/5POf`,
+						`司机端安装包`,
+						`Android下载链接：11`,
+            `iOS下载链接：https://www.pgyer.com/z11q`,
             `另有后台管理系统，可以查看订单数据，因内部使用，这里不多介绍`,
-            `责任描述：`,
+            `<span style="${styleString.fw}${styleString.color333}">责任描述：</span>`,
             `1、负责采用vue框架 + vant + scss + webpack + ES6开发app项目`,
             `2、内部采用webview方式加载web端页面，与开发人员通过WKWebView对接两端数据`,
             `3、与后端开发人员对接api接口，同时对接腾讯地图sdk，云信sdk`,
@@ -152,7 +163,8 @@ export default {
 }
 .container {
   height: auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
+  max-width: 1866px;
   margin: 0 auto;
   padding: 4% 0;
 }
@@ -283,4 +295,10 @@ ul.content li .s2 {
   text-align: right;
   box-sizing: border-box;
 }
+
+.info-message {
+	margin-bottom: 6px;
+	color: #333;
+}
+
 </style>

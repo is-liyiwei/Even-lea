@@ -83,9 +83,10 @@ export default {
   width: 40%;
   text-align: center;
   position: relative;
-  z-index: 10;
+	z-index: 10;
 }
 .avator img {
+	border-radius: 50%;
   width: 74%;
   border: 5px solid rgba(255, 255, 255, 0.68);
 }
