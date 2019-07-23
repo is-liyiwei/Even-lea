@@ -7,7 +7,7 @@
       <div class="content">
         <img src="../common/images/my-code.png" />
         <dl>
-          <dt>Contact By Email</dt>
+          <dt>Contact Me</dt>
           <dd>
             Email:<a href="mailto:1808361142@qq.com">1808361142@qq.com</a>
           </dd>

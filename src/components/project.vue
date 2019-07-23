@@ -7,23 +7,33 @@
       <ul>
         <li>
           <div class="title">官网</div>
-          <img src="../common/images/demo-1.png" alt="项目1" />
+          <img src="../common/images/demo-1.png" />
           <div class="link" @click="openPage('https://www.softbuilder.cn/')">点击前往</div>
         </li>
         <li>
           <div class="title">公司内部UI组件库</div>
-          <img src="../common/images/demo-2.png" alt="项目1" />
+          <img src="../common/images/demo-2.png" />
           <div class="link" @click="openPage('https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/')">点击前往</div>
         </li>
         <li>
           <div class="title">代码生成工具</div>
-          <img src="../common/images/web1.jpg" alt="项目3" />
+          <img src="../common/images/web1.jpg" />
           <div class="link" @click="openPage('https://github.com/is-liyiwei/codeGenerator')">点击前往</div>
         </li>
         <li>
+          <div class="title">高盛约车app乘客端</div>
+          <img src="../common/images/demo-3.png" />
+          <div class="link">点击前往</div>
+        </li>
+        <li>
+          <div class="title">高盛约车app司机端</div>
+          <img src="../common/images/demo-4.png" />
+          <div class="link">点击前往</div>
+        </li>
+        <li>
           <div class="title">约车app</div>
-          <img src="../common/images/web1.jpg" alt="项目4" />
-          <div class="link" style="opacity: 0;">点击前往</div>
+          <img src="../common/images/web1.jpg" />
+          <div class="link">点击前往</div>
         </li>
         <div class="clearfix"></div>
       </ul>
@@ -118,6 +128,7 @@ ul li {
   height: 80%;
   box-sizing: border-box;
   transition: transform 0.25s ease;
+  margin-bottom: 30px;
 }
 ul li img {
   width: 100%;
