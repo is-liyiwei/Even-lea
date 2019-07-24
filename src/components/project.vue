@@ -5,35 +5,11 @@
       <h1 class="title">{{title}}</h1>
       <span class="border"></span>
       <ul>
-        <li>
-          <div class="title">官网</div>
-          <img src="../common/images/demo-1.png" />
-          <div class="link" @click="openPage('https://www.softbuilder.cn/')">点击前往</div>
-        </li>
-        <li>
-          <div class="title">公司内部UI组件库</div>
-          <img src="../common/images/demo-2.png" />
-          <div class="link" @click="openPage('https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/')">点击前往</div>
-        </li>
-        <li>
-          <div class="title">代码生成工具</div>
-          <img src="../common/images/web1.jpg" />
-          <div class="link" @click="openPage('https://github.com/is-liyiwei/codeGenerator')">点击前往</div>
-        </li>
-        <li>
-          <div class="title">高盛约车app乘客端</div>
-          <img src="../common/images/demo-3.png" />
-          <div class="link">点击前往</div>
-        </li>
-        <li>
-          <div class="title">高盛约车app司机端</div>
-          <img src="../common/images/demo-4.png" />
-          <div class="link">点击前往</div>
-        </li>
-        <li>
-          <div class="title">约车app</div>
-          <img src="../common/images/web1.jpg" />
-          <div class="link">点击前往</div>
+        <li v-for="(v, k) in projectList" :key="k">
+          <div class="title">{{v.title}}</div>
+          <img :src="v.previewImg" />
+          <div v-if="v.qrCodeKey" @mouseenter="openImgDialog($event, v.qrCodeKey)" @mouseleave="closeImgDialog($event)" class="link" @click="openPage($event, v.link)">点击查看/扫码</div>
+          <div v-else class="link" @click="openPage($event, v.link)">点击查看/扫码</div>
         </li>
         <div class="clearfix"></div>
       </ul>
@@ -42,16 +18,75 @@
 </template>
 
 <script>
+let imgList = {
+  noneImg: require('../common/images/web1.jpg'),
+  demo1: require('../common/images/demo-1.png'),
+  demo2: require('../common/images/demo-2.png'),
+  demo3: require('../common/images/demo-3.png'),
+  demo4: require('../common/images/demo-4.png'),
+  demo5: require('../common/images/demo-5.png'),
+}
+
+let projectList = [{
+  title: '官网',
+  previewImg: imgList.demo1,
+  link: 'https://www.softbuilder.cn',
+  qrCodeKey: 'softbuilder',
+  hidden: false
+}, {
+  title: '公司内部UI组件库',
+  previewImg: imgList.demo2,
+  link: 'https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/',
+  qrCodeKey: '',
+  hidden: false
+}, {
+  title: '代码生成工具',
+  previewImg: imgList.noneImg,
+  link: 'https://github.com/is-liyiwei/codeGenerator',
+  qrCodeKey: '',
+  hidden: false
+}, {
+  title: '高盛约车app乘客端',
+  previewImg: imgList.demo3,
+  link: '',
+  qrCodeKey: '',
+  hidden: true
+}, {
+  title: '高盛约车app司机端',
+  previewImg: imgList.demo4,
+  link: '',
+  qrCodeKey: '',
+  hidden: true
+}, {
+  title: '社保小程序',
+  previewImg: imgList.demo5,
+  link: '',
+  qrCodeKey: 'softbuilder',
+  hidden: false
+}]
+
 export default {
   name: "project",
   data() {
     return {
-      title: "我的项目"
+      title: "我的项目",
+      projectList
     };
   },
   methods: {
-    openPage (url) {
-      window.open(url)
+    openPage (event, url) {
+      if (url) {
+        window.open(url)
+      } else {
+        }
+    },
+    openImgDialog (event, qrCodeKey) {
+      if (qrCodeKey) {
+        window.openImgDialog(event.target, qrCodeKey)
+      }
+    },
+    closeImgDialog (event) {
+      window.closeImgDialog(event.target)
     }
   }
 };
@@ -145,6 +180,7 @@ ul li .link {
   letter-spacing: 6px;
   position: relative;
   left: 5%;
+  display: inline-block;
 }
 
 ul li .title {

@@ -20,7 +20,7 @@
   		>
   		</vue-particles>
   	</top>
-  	<about/>
+  	<!-- <about/> -->
   	<experience/>
   	<skill/>
   	<project/>

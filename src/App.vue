@@ -4,7 +4,7 @@
     <span class="top-btn" @click="scrollToTop" v-show="topBtn"></span>
     <div id="img-preview-box" class="img-box">
       <img src="" alt="">
-      <div class="msg">扫码查看移动端</div>
+      <div class="msg">可扫码查看</div>
     </div>
   </div>
 </template>
@@ -21,9 +21,10 @@ window.openImgDialog = function (targetDom, srcKey) {
   let imgPreviewBox = document.getElementById('img-preview-box')
   let imageDom = imgPreviewBox.querySelector('img')
   imageDom.src = window.qCode[srcKey]
-	imgPreviewBox.style.top = targetDomRect.top - 300 - 20 + 'px';
-	imgPreviewBox.style.left = targetDomRect.left - 80 + 'px';
+	imgPreviewBox.style.top = targetDomRect.top - 150 - 100 - 25 + 'px';
+	imgPreviewBox.style.left = targetDomRect.left - 300 - 10 + 'px';
   imgPreviewBox.style.display = 'flex';
+  imgPreviewBox.style.zIndex = 999;
   setTimeout(() => {
     imgPreviewBox.style.opacity = 1;
   }, 20);
@@ -109,24 +110,25 @@ export default {
   transition: opacity 300ms;
   width: 300px;
   height: 300px;
-  background-color: #FFF;
+  background-color: #1b242f;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   opacity: 0;
+  border: 1px solid rgb(0, 0, 0);
   /* overflow: hidden; */
 }
 
-.img-box:before {
+/* .img-box:before {
   content: '';
   position: absolute;
   bottom: -20px;
   width: 0;
   height: 0;
   border: 10px solid;
-  border-color: #FFF transparent transparent;
-}
+  border-color: red transparent transparent;
+} */
 
 .img-box img {
   width: 100%;
@@ -138,7 +140,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: #FFF;
   font-size: 18px;
 }
 </style>
