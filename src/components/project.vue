@@ -8,8 +8,14 @@
         <li v-for="(v, k) in projectList" :key="k">
           <div class="title">{{v.title}}</div>
           <img :src="v.previewImg" />
-          <div v-if="v.qrCodeKey" @mouseenter="openImgDialog($event, v.qrCodeKey)" @mouseleave="closeImgDialog($event)" class="link" @click="openPage($event, v.link)">点击查看/扫码</div>
-          <div v-else class="link" @click="openPage($event, v.link)">点击查看/扫码</div>
+          <div
+            v-if="v.qrCodeKey"
+            @mouseenter="openImgDialog($event, v.qrCodeKey)"
+            @mouseleave="closeImgDialog($event)"
+            class="link"
+            @click="openPage($event, v.link, v.qrCodeKey)"
+          >点击查看/扫码</div>
+          <div v-else class="link" @click="openPage($event, v.link, v.qrCodeKey)">点击查看/扫码</div>
         </li>
         <div class="clearfix"></div>
       </ul>
@@ -18,53 +24,63 @@
 </template>
 
 <script>
-let imgList = {
-  noneImg: require('../common/images/web1.jpg'),
-  demo1: require('../common/images/demo-1.png'),
-  demo2: require('../common/images/demo-2.png'),
-  demo3: require('../common/images/demo-3.png'),
-  demo4: require('../common/images/demo-4.png'),
-  demo5: require('../common/images/demo-5.png'),
+let imgList = {};
+
+for (let index = 0; index <= 6; index++) {
+  imgList["demo" + index] = require(`../common/images/demo/demo-${index}.png`);
 }
 
-let projectList = [{
-  title: '官网',
-  previewImg: imgList.demo1,
-  link: 'https://www.softbuilder.cn',
-  qrCodeKey: 'softbuilder',
-  hidden: false
-}, {
-  title: '公司内部UI组件库',
-  previewImg: imgList.demo2,
-  link: 'https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/',
-  qrCodeKey: '',
-  hidden: false
-}, {
-  title: '代码生成工具',
-  previewImg: imgList.noneImg,
-  link: 'https://github.com/is-liyiwei/codeGenerator',
-  qrCodeKey: '',
-  hidden: false
-}, {
-  title: '高盛约车app乘客端',
-  previewImg: imgList.demo3,
-  link: '',
-  qrCodeKey: '',
-  hidden: true
-}, {
-  title: '高盛约车app司机端',
-  previewImg: imgList.demo4,
-  link: '',
-  qrCodeKey: '',
-  hidden: true
-}, {
-  title: '社保小程序',
-  previewImg: imgList.demo5,
-  link: '',
-  qrCodeKey: 'softbuilder',
-  hidden: false
-}]
-
+let projectList = [
+  {
+    title: "官网",
+    previewImg: imgList.demo1,
+    link: "https://www.softbuilder.cn",
+    qrCodeKey: "softbuilder",
+    hidden: false
+  },
+  {
+    title: "公司内部UI组件库",
+    previewImg: imgList.demo2,
+    link: "https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/",
+    qrCodeKey: "",
+    hidden: false
+  },
+  {
+    title: "代码生成工具",
+    previewImg: imgList.demo0,
+    link: "https://github.com/is-liyiwei/codeGenerator",
+    qrCodeKey: "",
+    hidden: false
+  },
+  {
+    title: "高盛约车app乘客端",
+    previewImg: imgList.demo3,
+    link: "",
+    qrCodeKey: "",
+    hidden: true
+  },
+  {
+    title: "高盛约车app司机端",
+    previewImg: imgList.demo4,
+    link: "",
+    qrCodeKey: "",
+    hidden: true
+  },
+  {
+    title: "社保小程序",
+    previewImg: imgList.demo5,
+    link: "",
+    qrCodeKey: "softbuilder",
+    hidden: false
+  },
+  {
+    title: "官网小程序",
+    previewImg: imgList.demo6,
+    link: "",
+    qrCodeKey: "softbuilder",
+    hidden: false
+  }
+];
 export default {
   name: "project",
   data() {
@@ -74,19 +90,24 @@ export default {
     };
   },
   methods: {
-    openPage (event, url) {
+    openPage(event, url, qrCodeKey) {
       if (url) {
-        window.open(url)
+        window.open(url);
       } else {
+        if (qrCodeKey) {
+          this.$NoticeJsHandle("请扫码查看", "info");
+        } else {
+          this.$NoticeJsHandle();
         }
-    },
-    openImgDialog (event, qrCodeKey) {
-      if (qrCodeKey) {
-        window.openImgDialog(event.target, qrCodeKey)
       }
     },
-    closeImgDialog (event) {
-      window.closeImgDialog(event.target)
+    openImgDialog(event, qrCodeKey) {
+      if (qrCodeKey) {
+        window.openImgDialog(event.target, qrCodeKey);
+      }
+    },
+    closeImgDialog(event) {
+      window.closeImgDialog(event.target);
     }
   }
 };
@@ -132,6 +153,7 @@ export default {
   font-family: "Overlock", cursive;
   color: #2f2c06;
   font-size: 36px;
+  font-weight: bold;
 }
 .border {
   display: block;

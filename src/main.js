@@ -7,15 +7,18 @@ import router from './router'
 import '@/common/css/reset.css'
 import '@/common/css/base.css'
 
+import imgDialogPlugin from '@/plugins/imgDialog'
+import notice from '@/plugins/notice'
+
 import VueParticles from 'vue-particles'
-// import VueAwesomeSwiper from 'vue-awesome-swiper'
-// import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueParticles)
-// Vue.use(VueAwesomeSwiper)
+Vue.use(imgDialogPlugin)
+Vue.use(notice)
+
 
 Vue.config.productionTip = false // 线上改为true
-Vue.config.debug = true // 开启debug模式
+Vue.config.debug = false // 开启debug模式
 
 /* eslint-disable no-new */
 new Vue({

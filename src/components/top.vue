@@ -70,7 +70,7 @@ export default {
 .container {
   width: 100%;
   height: auto;
-  background: url("../common/images/dott.png") repeat;
+  /* background: url("../common/images/dott.png") repeat; */
   position: relative;
 }
 .banner {
