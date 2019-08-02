@@ -47,7 +47,7 @@ export default {
       info: {
         name: "I,m Even lea",
         job: "h5 Developer and Web Engineer",
-        birth: "1992-12-26",
+        birth: "1992-12",
         email: "1808361142@qq.com",
         phone: "13430242537",
         address: "广东省广州市天河区",

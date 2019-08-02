@@ -70,14 +70,14 @@ let projectList = [
     title: "社保小程序",
     previewImg: imgList.demo5,
     link: "",
-    qrCodeKey: "softbuilder",
+    qrCodeKey: "softbuilderWxApp_shebao",
     hidden: false
   },
   {
     title: "官网小程序",
     previewImg: imgList.demo6,
     link: "",
-    qrCodeKey: "softbuilder",
+    qrCodeKey: "softbuilderWxApp_home",
     hidden: false
   }
 ];

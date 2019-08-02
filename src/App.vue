@@ -105,6 +105,7 @@ export default {
 
 .img-box img {
   width: 100%;
+  height: 260px;
   flex: 13;
 }
 
