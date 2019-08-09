@@ -1,10 +1,12 @@
 <template>
   <div class="experience">
     <div class="container">
+
       <span class="tip">WHERE I DID</span>
       <h1 class="title">{{title}}</h1>
       <span class="border"></span>
-      <!-- <ul class="content">
+      <!-- pc端模板 -->
+      <ul class="content" v-if="isPc">
         <li v-for="(v, k) in list" :key="k">
           <div class="content_left tx_right">
             <i class="s-icon" :class="v.className"></i>
@@ -16,13 +18,14 @@
           </div>
           <div class="clearfix"></div>
         </li>
-      </ul> -->
-      <div class="content">
+      </ul>
+      <!-- 移动端模板 -->
+      <div class="content" v-else>
         <van-collapse accordion v-model="activeNames">
           <van-collapse-item  v-for="(v, k) in list" :key="k" :name="k + 1">
 
             <div slot="title" class="collapse-title">
-              <div>名称：{{v.companyName}}</div>
+              <div>{{v.companyName}}</div>
               <i class="s-icon-mob" :class="v.className"></i>
             </div>
 
@@ -32,6 +35,7 @@
           </van-collapse-item>
         </van-collapse>
       </div>
+
     </div>
   </div>
 </template>
@@ -46,6 +50,7 @@ export default {
   name: "experience",
   data() {
     return {
+      isPc: window.__isPc,
       activeNames: [1],
       icon1: require("../common/images/company.png"),
       icon2: require("../common/images/project.png"),
@@ -168,7 +173,9 @@ export default {
       ]
     };
   },
-  mounted() {}
+  mounted() {
+
+  }
 };
 </script>
 

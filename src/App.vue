@@ -4,7 +4,7 @@
     <span class="top-btn" @click="scrollToTop" v-show="topBtn"></span>
     <div id="img-preview-box" class="img-box">
       <img src="" alt="">
-      <div class="msg">可扫码查看</div>
+      <div class="msg">扫码查看手机端</div>
     </div>
   </div>
 </template>
@@ -90,18 +90,19 @@ export default {
   flex-direction: column;
   opacity: 0;
   border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
   /* overflow: hidden; */
 }
 
-/* .img-box:before {
+.img-box:before {
   content: '';
   position: absolute;
-  bottom: -20px;
+  bottom: -36px;
   width: 0;
   height: 0;
-  border: 10px solid;
-  border-color: red transparent transparent;
-} */
+  border: 20px solid;
+  border-color: #1b242f transparent transparent;
+}
 
 .img-box img {
   width: 100%;
@@ -115,6 +116,6 @@ export default {
   justify-content: center;
   align-items: center;
   color: #FFF;
-  font-size: 18px;
+  font-size: 22px;
 }
 </style>

@@ -41,8 +41,8 @@ export default {
       let imgPreviewBox = document.getElementById("img-preview-box");
       let imageDom = imgPreviewBox.querySelector("img");
       imageDom.src = window.qCode[srcKey];
-      imgPreviewBox.style.top = targetDomRect.top - 150 - 100 - 25 + "px";
-      imgPreviewBox.style.left = targetDomRect.left - 300 - 10 + "px";
+      imgPreviewBox.style.top = targetDomRect.top - 250 + "px";
+      imgPreviewBox.style.left = targetDomRect.left - 50 + "px";
       imgPreviewBox.style.display = "flex";
       imgPreviewBox.style.zIndex = 999;
       setTimeout(() => {

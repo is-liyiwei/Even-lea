@@ -9,8 +9,18 @@ import 'lib-flexible/flexible'
 import '@/common/css/reset.css'
 import '@/common/css/base.css'
 
-import Vant from 'vant'
-import 'vant/lib/index.less'
+// import 'vant/lib/index.css';
+// import Vant from 'vant';
+// Vue.use(Vant);
+
+// 组件按需引入
+import Collapse from 'vant/lib/collapse';
+import CollapseItem from 'vant/lib/collapse-item';
+import 'vant/lib/style/base.less'
+import 'vant/lib/collapse-item/index.less'
+
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 
 import imgDialogPlugin from '@/plugins/imgDialog'
 import notice from '@/plugins/notice'
@@ -20,7 +30,6 @@ import VueParticles from 'vue-particles'
 Vue.use(VueParticles)
 Vue.use(imgDialogPlugin)
 Vue.use(notice)
-Vue.use(Vant)
 
 Vue.config.productionTip = false // 线上改为true
 Vue.config.debug = false // 开启debug模式

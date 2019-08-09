@@ -124,7 +124,6 @@ export default {
 }
 .container {
   height: auto;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 4% 0;
 }
@@ -150,7 +149,6 @@ export default {
 }
 .title {
   padding: 6px 0 10px;
-  font-family: "Overlock", cursive;
   color: #2f2c06;
   font-size: 36px;
   font-weight: bold;
@@ -176,20 +174,22 @@ export default {
 
 ul {
   width: 100%;
-  padding: 4% 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 20px 0;
+  box-sizing: border-box;
 }
 ul li {
-  float: left;
-  width: 20%;
-  margin-right: 5%;
-  height: 80%;
-  box-sizing: border-box;
-  transition: transform 0.25s ease;
-  margin-bottom: 30px;
+  width: calc(100% / 4 - 85px);
+  text-align: center;
+  margin: 0 40px;
+  margin-bottom: 50px;
+  font-size: 22px;
 }
 ul li img {
   width: 100%;
-  height: 420px;
+  height: 800px;
   display: block;
   border: 1px solid #cccccc;
   padding: 10px;
@@ -198,7 +198,7 @@ ul li .link {
   margin-top: 10px;
   cursor: pointer;
   color: #03a9f4;
-  font-size: 18px;
+  font-size: 26px;
   letter-spacing: 6px;
   position: relative;
   left: 5%;
@@ -209,14 +209,55 @@ ul li .title {
   margin-bottom: 10px;
   color: #03a9f4;
   letter-spacing: 6px;
-  font-size: 18px;
+  font-size: 32px;
   position: relative;
   left: 5%;
 }
-/* ul li:hover {
-  z-index: 100;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.2);
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} */
+
+@media (max-width: 1280px) {
+  ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 20px 0;
+    box-sizing: border-box;
+  }
+  ul li {
+    width: calc(100% / 4 - 40px);
+    text-align: center;
+    margin: 0 20px;
+    margin-bottom: 50px;
+    font-size: 22px;
+  }
+
+  ul li img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    border: 1px solid #cccccc;
+    padding: 10px;
+  }
+  ul li .link {
+    margin-top: 10px;
+    cursor: pointer;
+    color: #03a9f4;
+    font-size: 14px;
+    letter-spacing: 6px;
+    position: relative;
+    left: 5%;
+    display: inline-block;
+  }
+
+  ul li .title {
+    margin-bottom: 10px;
+    color: #03a9f4;
+    letter-spacing: 6px;
+    font-size: 18px;
+    position: relative;
+    left: 5%;
+    height: 50px;
+  }
+
+}
 </style>
