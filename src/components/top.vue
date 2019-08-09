@@ -154,4 +154,22 @@ h6 {
   height: 100%;
   z-index: 1;
 }
+
+
+@media (max-width: 1280px) {
+  .avator {
+    position: relative;
+    top: 70px;
+  }
+  .avator img {
+    border-radius: 50%;
+    width: 66%;
+    border: 5px solid rgba(255, 255, 255, 0.68);
+  }
+  .info ul li {
+    font-size: 20px;
+    margin-top: 16px;
+  }
+}
+
 </style>

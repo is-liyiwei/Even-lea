@@ -29,9 +29,31 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  const px2remLoaderByVant = {
+    loader: 'px2rem-loader',
+    options: {
+      // remUnit: 75
+      remUnit: 37.5
+    }
+  }
+
+  const px2remLoaderByHz = {
+    loader: 'px2rem-loader',
+    options: {
+      remUnit: 75
+      // remUnit: 37.5
+    }
+  }
+
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders (loader, loaderOptions, usePx2Rem = false) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+    if (usePx2Rem) {
+      loaders.push(px2remLoaderByVant)
+    } else {
+      loaders.push(px2remLoaderByHz)
+    }
+    // const loaders = usePx2Rem ? [cssLoader, postcssLoader, px2remLoaderByVant] : [cssLoader, postcssLoader, px2remLoaderByHz]
 
     if (loader) {
       loaders.push({
@@ -47,7 +69,6 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        publicPath: '../../', // 解决css背景图片路径错误无法显示
         fallback: 'vue-style-loader'
       })
     } else {
@@ -57,9 +78,9 @@ exports.cssLoaders = function (options) {
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
-    css: generateLoaders(),
+    css: generateLoaders('', {}),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: generateLoaders('less', {}, true),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
@@ -74,9 +95,12 @@ exports.styleLoaders = function (options) {
 
   for (const extension in loaders) {
     const loader = loaders[extension]
+    // console.log('====================================');
+    // console.log(extension);
+    // console.log('====================================');
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      use: loader
+      use: loader,
     })
   }
 

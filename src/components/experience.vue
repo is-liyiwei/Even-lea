@@ -4,10 +4,10 @@
       <span class="tip">WHERE I DID</span>
       <h1 class="title">{{title}}</h1>
       <span class="border"></span>
-      <ul class="content">
+      <!-- <ul class="content">
         <li v-for="(v, k) in list" :key="k">
           <div class="content_left tx_right">
-            <span :class="v.className"></span>
+            <i class="s-icon" :class="v.className"></i>
             <h4>{{v.time}}</h4>
           </div>
           <div class="content_right tx_left">
@@ -16,24 +16,39 @@
           </div>
           <div class="clearfix"></div>
         </li>
-      </ul>
+      </ul> -->
+      <div class="content">
+        <van-collapse accordion v-model="activeNames">
+          <van-collapse-item  v-for="(v, k) in list" :key="k" :name="k + 1">
+
+            <div slot="title" class="collapse-title">
+              <div>名称：{{v.companyName}}</div>
+              <i class="s-icon-mob" :class="v.className"></i>
+            </div>
+
+            <div class="collapse-time">时间：{{v.time}}</div>
+            <div class="collapse-message" v-for="(vv) in v.projectInfo" :key="vv" v-html="vv"></div>
+
+          </van-collapse-item>
+        </van-collapse>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
 let styleString = {
-	fw: `font-weight: bold;`,
-	color333: `color:#333;`
-}
+  fw: `font-weight: bold;`,
+  color333: `color:#333;`
+};
 
 export default {
   name: "experience",
   data() {
     return {
-			icon1: require("../common/images/company.png"),
-			icon2: require("../common/images/project.png"),
+      activeNames: [1],
+      icon1: require("../common/images/company.png"),
+      icon2: require("../common/images/project.png"),
       title: "工作与项目",
       list: [
         {
@@ -43,11 +58,11 @@ export default {
             `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
             `1、主要工作内容：生产广告招牌字，门店门头招牌等，体力活较多，技术含量不高`
           ],
-          className: "s1",
+          className: "s1"
         },
         {
           time: "2016/7 - 2018/5",
-          companyName: "广州幻速科技有限公司 (web前端开发)",
+          companyName: "广州幻速科技 (web前端开发)",
           projectInfo: [
             `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
             `1、负责Web产品的前端表现层与后端交互的设计和开发，保证页面浏览的兼容性和流畅浏览`,
@@ -55,11 +70,11 @@ export default {
             `3、根据产品设计，利用HTML5和CSS3等相关技术开发手机、平板电脑等多平台上的前端应用`,
             `4、负责微信小程序页面制作开发及维护`
           ],
-          className: "s1",
+          className: "s1"
         },
         {
           time: "2018/7 - 至今",
-          companyName: "广州市萤火虫软件开发有限公司 (web前端开发)",
+          companyName: "广州萤火虫软件开发 (web前端开发)",
           projectInfo: [
             `<span style="${styleString.fw}${styleString.color333}">工作内容：</span>`,
             `1、对系统框架相关技术和业务进行开发，并解决系统开发、运行中出现的各种问题；`,
@@ -70,7 +85,7 @@ export default {
             `6、负责公司技术部框架的搭建使用`,
             `7、负责公司技术开发的一些工具类搭建，提高团队开发效率`
           ],
-          className: "s1",
+          className: "s1"
         },
         {
           time: "2018/7 - 至今",
@@ -91,7 +106,7 @@ export default {
             `5、与产品、后台开发人员保持良好沟通，理解各方需求，转变为具体的开发工作；`,
             `6、使用git进行项目代码版本控制`
           ],
-          className: "s2",
+          className: "s2"
         },
         {
           time: "2018/7 - 至今",
@@ -107,7 +122,7 @@ export default {
             `3、配合同事提出得需求，不断维护更新，修复bug，添加新功能`,
             `4、图片处理以及本地服务器采用node.js + express.js搭建`
           ],
-          className: "s2",
+          className: "s2"
         },
         {
           time: "2018/7 - 至今",
@@ -124,7 +139,7 @@ export default {
             `2、负责基本架构的设计和搭建`,
             `3、维护更新，修复bug，添加新功能`
           ],
-          className: "s2",
+          className: "s2"
         },
         {
           time: "2018/7 - 至今",
@@ -134,11 +149,11 @@ export default {
             `1、采用vue框架 + vant + scss + webpack + ES6开发的混合型app项目`,
             `2、项目分成乘客端/司机端，乘客可根据地图地位在线叫车，司机端根据最近订单接单`,
             `3、软件内部使用，地图定位，路径规划，路线报价，实时上传位置信息，确保订单流程`,
-						`4、接入云信sdk，使得乘客与司机可在线聊天，也可一键拨打司机电话和报警电话`,
-						`乘客端安装包`,
+            `4、接入云信sdk，使得乘客与司机可在线聊天，也可一键拨打司机电话和报警电话`,
+            `乘客端安装包`,
             `1、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/5POf">Android下载链接：内测版，暂无下载地址</a>`,
             `2、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/5POf">iOS下载链接：https://www.pgyer.com/5POf</a>`,
-						`司机端安装包`,
+            `司机端安装包`,
             `1、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/z11q">Android下载链接：内测版，暂无下载地址</a>`,
             `2、<a target="view_window" class="reset-alink" href="https://www.pgyer.com/z11q">iOS下载链接：https://www.pgyer.com/z11q</a>`,
             `3、另有后台管理系统，可以查看订单数据，因内部使用，这里不多介绍`,
@@ -148,14 +163,12 @@ export default {
             `3、与后端开发人员对接api接口，同时对接腾讯地图sdk，云信sdk`,
             `4、使用git进行项目代码版本控制`
           ],
-          className: "s2",
+          className: "s2"
         }
       ]
     };
-	},
-	mounted () {
-
-	}
+  },
+  mounted() {}
 };
 </script>
 
@@ -171,7 +184,6 @@ export default {
 .container {
   height: auto;
   /* max-width: 1200px; */
-  max-width: 1866px;
   margin: 0 auto;
   padding: 4% 0;
 }
@@ -273,7 +285,7 @@ ul.content li {
   font-size: 14px;
 }
 /*小图标*/
-ul.content li span {
+.content .s-icon {
   position: absolute;
   top: 30px;
   right: -19px;
@@ -284,10 +296,10 @@ ul.content li span {
   background: url("../common/images/company.png") no-repeat center;
   background-size: 50%;
 }
-ul.content li .s1 {
+.content .s1 {
   background-color: #44c7f4;
 }
-ul.content li .s2 {
+.content .s2 {
   background-color: #eb5424;
 }
 
@@ -304,8 +316,43 @@ ul.content li .s2 {
 }
 
 .info-message {
-	margin-bottom: 6px;
-	color: #333;
+  margin-bottom: 6px;
+  color: #333;
 }
 
+@media (max-width: 1280px) {
+  .content .s-icon-mob {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: url("../common/images/company.png") no-repeat center;
+    background-size: 50%;
+  }
+  .content .s1 {
+    background-color: #44c7f4;
+  }
+  .content .s2 {
+    background-color: #eb5424;
+  }
+  .collapse-title {
+    position: relative;
+    text-align: left;
+    padding-left: 50px;
+  }
+  .collapse-time {
+    text-align: left;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .collapse-message {
+    font-size: 22px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
 </style>

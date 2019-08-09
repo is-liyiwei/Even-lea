@@ -23,8 +23,6 @@ body, html{
   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
   /* user-select: none ; // 禁用文本选中 */
   -webkit-tap-highlight-color: transparent;
-  width: 100%;
-  height: auto;
   margin: 0;
 }
 ul li{
