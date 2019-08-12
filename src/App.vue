@@ -67,6 +67,7 @@ export default {
   background-position: 0 0;
   background-size: 100%;
   cursor: pointer;
+  transform: scale(1.5);
 }
 #app .top-btn:hover {
   background-position: 0 100%;

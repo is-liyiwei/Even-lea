@@ -181,7 +181,7 @@ ul {
   box-sizing: border-box;
 }
 ul li {
-  width: calc(100% / 4 - 85px);
+  width: calc(100% / 4 - 80px);
   text-align: center;
   margin: 0 40px;
   margin-bottom: 50px;
@@ -193,25 +193,29 @@ ul li img {
   display: block;
   border: 1px solid #cccccc;
   padding: 10px;
+  box-sizing: border-box;
 }
 ul li .link {
+  width: 100%;
   margin-top: 10px;
   cursor: pointer;
   color: #03a9f4;
   font-size: 26px;
   letter-spacing: 6px;
   position: relative;
-  left: 5%;
   display: inline-block;
 }
 
 ul li .title {
+  width: 100%;
   margin-bottom: 10px;
   color: #03a9f4;
   letter-spacing: 6px;
   font-size: 32px;
   position: relative;
-  left: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1280px) {
@@ -227,13 +231,13 @@ ul li .title {
     width: calc(100% / 4 - 40px);
     text-align: center;
     margin: 0 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-size: 22px;
   }
 
   ul li img {
     width: 100%;
-    height: 300px;
+    height: 280px;
     display: block;
     border: 1px solid #cccccc;
     padding: 10px;
@@ -245,17 +249,15 @@ ul li .title {
     font-size: 14px;
     letter-spacing: 6px;
     position: relative;
-    left: 5%;
     display: inline-block;
   }
 
   ul li .title {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     color: #03a9f4;
     letter-spacing: 6px;
-    font-size: 18px;
+    font-size: 16px;
     position: relative;
-    left: 5%;
     height: 50px;
   }
 
