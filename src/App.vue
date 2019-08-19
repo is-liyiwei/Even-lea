@@ -3,14 +3,13 @@
     <router-view />
     <span class="top-btn" @click="scrollToTop" v-show="topBtn"></span>
     <div id="img-preview-box" class="img-box">
-      <img src="" alt="">
+      <img src alt />
       <div class="msg">扫码查看手机端</div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "App",
   data() {
@@ -29,10 +28,12 @@ export default {
     scrollToTop() {
       window.timer = setInterval(function() {
         //获取滚动条的滚动高度
-        var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var osTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
         //用于设置速度差，产生缓动的效果
         var speed = Math.floor(-osTop / 2);
-        document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+        document.documentElement.scrollTop = document.body.scrollTop =
+          osTop + speed;
 
         if (osTop <= 0) {
           clearInterval(window.timer);
@@ -74,9 +75,9 @@ export default {
 }
 
 .reset-alink {
-	text-decoration:none;
-	outline: none;
-	color: #44c7f4;
+  text-decoration: none;
+  outline: none;
+  color: #44c7f4;
 }
 
 .img-box {
@@ -96,7 +97,7 @@ export default {
 }
 
 .img-box:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -36px;
   width: 0;
@@ -116,7 +117,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFF;
+  color: #fff;
   font-size: 22px;
 }
 </style>
