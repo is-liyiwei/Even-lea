@@ -1,3 +1,4 @@
-个人简历网站
+个人展示网站
 
-http://localhost:1008/#/index
+
+https://is-liyiwei.github.io/Even-lea
