@@ -1,0 +1,12 @@
+@for $i from 8 through 100 {
+  @if $i % 2 == 0 {
+    .app-fz-#{$i} {
+      font-size: #{$i}px;
+    }
+  } @else {
+  }
+}
+
+.app-fwb {
+  font-weight: bold;
+}

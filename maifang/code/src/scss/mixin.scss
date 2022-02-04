@@ -1,0 +1,20 @@
+@function fixRem($value) {
+  @return $value * 0.5px;
+}
+
+// 尽量用src\scss\varCss\flex.scss里面的class
+@mixin flexBox ($type1:flex, $type2:space-around, $type3:center){
+	display: $type1;
+	justify-content: $type2;
+	align-items: $type3;
+}
+
+@mixin textClamp ($clampNum:1){
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $clampNum;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}

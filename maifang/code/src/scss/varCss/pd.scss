@@ -1,0 +1,31 @@
+$enum: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60;
+
+@for $i from 1 to length($enum) + 1 {
+  .app-pdt-#{nth($enum, $i)} {
+    padding-top: #{nth($enum, $i)}px;
+  }
+}
+
+@for $i from 1 to length($enum) + 1 {
+  .app-pdr-#{nth($enum, $i)} {
+    padding-right: #{nth($enum, $i)}px;
+  }
+}
+
+@for $i from 1 to length($enum) + 1 {
+  .app-pdb-#{nth($enum, $i)} {
+    padding-bottom: #{nth($enum, $i)}px;
+  }
+}
+
+@for $i from 1 to length($enum) + 1 {
+  .app-pdl-#{nth($enum, $i)} {
+    padding-left: #{nth($enum, $i)}px;
+  }
+}
+
+@for $i from 1 to length($enum) + 1 {
+  .app-pda-#{nth($enum, $i)} {
+    padding: #{nth($enum, $i)}px;
+  }
+}
