@@ -1,1 +1,0 @@
-import{_ as r,u as s,o as _,c as n}from"./index-bd79c9aa.js";let a="root";const c={name:a,components:{},setup(e,o){return s().push({name:"home",query:{id:"666"}}),{}}},p={id:"root"};function u(e,o,t,d,i,m){return _(),n("div",p)}var l=r(c,[["render",u],["__scopeId","data-v-1c01185d"]]);export{l as default};
