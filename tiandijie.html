@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Document</title>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/theme-chalk/index.css"
+      rel="stylesheet"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"
+    /> -->
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        display: flex;
+        justify-content: space-around;
+        /* justify-content: center; */
+        /* align-items: center; */
+        flex-wrap: wrap;
+        padding: 0 12px;
+      }
+      .item {
+        width: 22%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 24px;
+      }
+      .btn {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="box">
+        <div class="item" v-for="(item, index) in list">
+          <el-button class="btn" :type="item.type">
+            {{ item.a.join('+') }}
+          </el-button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/index.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/Faker/3.1.0/faker.min.js"></script> -->
+
+  <script>
+    /* arr 第一个参数 需要排列组合的数组，len 第二个参数为需要组合的个数 */
+    /* 返回参数为多为数组[[],[]] */
+    function rankFun(arr, len = 3) {
+      var returnArr = []
+      var calculationFun = function (calcuArr, cArr = null) {
+        var copyArr = [].concat(calcuArr)
+        !cArr && copyArr.splice(0, 1)
+        for (var i = 0, l = copyArr.length; i < l; i++) {
+          var strArr1 = cArr ? [].concat(cArr) : [calcuArr[0]]
+          strArr1.push(copyArr[i])
+          if (strArr1.length >= len) {
+            returnArr.push(strArr1)
+          } else {
+            var newCopy = [].concat(copyArr)
+            newCopy.splice(0, i + 1)
+            calculationFun(newCopy, strArr1)
+          }
+        }
+
+        if (!cArr) {
+          if (copyArr.length > len) {
+            calculationFun(copyArr)
+          } else {
+            returnArr.push(copyArr)
+          }
+        }
+      }
+      len <= 1 ? (returnArr = arr) : calculationFun(arr)
+      return returnArr
+    }
+
+    // functionMsg: 返回在两个数组之间的差集，这个方法还可以判断两个数组的数据是否完全相同
+
+    // version: 0.0.1
+
+    // 结果 = arr1少了arr2的元素 + arr2少了arr1的元素
+
+    let diffBetween = (a, b) => {
+      return a.concat(b).filter(v => !a.includes(v) || !b.includes(v))
+    }
+  </script>
+  <script>
+    // var vConsole = new VConsole()
+    // 注意，纯html不支持自闭合标签，复制vant代码的时候要注意
+
+    let heroList = [
+      '大恶魔',
+      '剑圣',
+      '魔法剑士',
+      '喷火兵',
+      '天将(深渊)',
+      '古德伦',
+      '影子剑客',
+      '封寒月',
+      '韩千秀',
+      '神秘人',
+      '大法师',
+      '扇子妹(月夜精灵)',
+      '6千防妹(紫枫)',
+      '小恶魔',
+      '和尚',
+      '弓箭妹(舞舞)',
+      '冰璃(守望者)',
+      '白虎(雨雪冰天)',
+      '地铁(阿克蒙德)',
+      '血法',
+      '熊猫',
+      '牛头',
+      '殷剑平',
+      '哼哼',
+      '山丘',
+      '蛋(狗)',
+      '蛋(蛇)',
+      '死骑',
+      '龙顶天',
+      '陇夜',
+      '小云'
+    ]
+
+    // 共465种组合
+    let zu_he = rankFun(heroList, 2)
+
+    let list = []
+
+    let tong_guan = [
+      ['小恶魔', '大恶魔']
+      // ['剑圣', '魔法剑士']
+    ]
+
+    zu_he.map(v0 => {
+      tong_guan.map(v1 => {
+        if (diffBetween(v0, v1).length === 0) {
+          list.push({
+            a: v0,
+            type: 'success'
+          })
+        } else {
+          list.push({
+            a: v0,
+            type: 'danger'
+          })
+        }
+      })
+    })
+
+    // console.log(JSON.stringify(zu_he, null, 2))
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          list
+        }
+      },
+      methods: {},
+      mounted() {}
+    })
+  </script>
+</html>
